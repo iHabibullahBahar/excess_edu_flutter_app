@@ -9,55 +9,52 @@ class WhatYouLearnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'What You will Learn',
-            textScaleFactor: 1.5,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'What You will Learn',
+          textScaleFactor: 1.5,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
           ),
-          SizedBox(height: 8),
-          ListView.builder(
-            //shrinkWrap: true,
-            //physics: NeverScrollableScrollPhysics(),
-            itemCount: course.whatYouLearn.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Icon(
-                            Icons.check,
-                            size: 25,
-                          ),
+        ),
+        SizedBox(height: 8),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: course.whatYouLearn.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Icon(
+                          Icons.check,
+                          size: 25,
                         ),
-                        SizedBox(width: 12),
-                        Flexible(
-                          child: Text(
-                            course.whatYouLearn[index],
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 3,
-                          ),
+                      ),
+                      SizedBox(width: 12),
+                      Flexible(
+                        child: Text(
+                          course.whatYouLearn[index],
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 7),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 7),
+                ],
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
