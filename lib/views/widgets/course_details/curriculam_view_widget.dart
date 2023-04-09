@@ -12,8 +12,6 @@ class CurriculumViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Text("Hlwwww"),
-      height: 100,
-      width: 100,
       color: Colors.amber,
     );
   }

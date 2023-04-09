@@ -13,11 +13,11 @@
             "last_updated": "2021-08-01",
             "rating": 4.5,
             "course_includes": {
-                "total_section": "8",
-                "total_video": "18",
-                "total_article": "2",
-                "total_quiz": "2",
-                "course_duration": "82000"
+                "total_section": 8,
+                "total_video": 18,
+                "total_article": 2,
+                "total_quiz": 2,
+                "course_duration": 82000
             },
             "instructor": {
                 "name": "Tanvir Rahman",

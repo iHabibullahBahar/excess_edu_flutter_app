@@ -7,11 +7,11 @@ class CourseIncludes {
     required this.courseDuration,
   });
 
-  String totalSection;
-  String totalVideo;
-  String totalArticle;
-  String totalQuiz;
-  String courseDuration;
+  int totalSection;
+  int totalVideo;
+  int  totalArticle;
+  int  totalQuiz;
+  int courseDuration;
 
   factory CourseIncludes.fromJson(Map<String, dynamic> json) => CourseIncludes(
         totalSection: json["total_section"],
