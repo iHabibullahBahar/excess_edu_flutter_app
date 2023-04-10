@@ -14,7 +14,7 @@ class Lesson {
   String lessonName;
   String lessonType;
   bool isPreviewable;
-  String contentSize;
+  int contentSize;
   String contentUrl;
 
   factory Lesson.fromJson(Map<String, dynamic> json) => Lesson(

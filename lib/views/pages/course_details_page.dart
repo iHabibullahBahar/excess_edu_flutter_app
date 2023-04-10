@@ -1,15 +1,20 @@
 import 'package:excess_edu/consts/colors.dart';
 import 'package:excess_edu/consts/sizes.dart';
-import 'package:excess_edu/views/widgets/course_details/curriculam_view_widget.dart';
+import 'package:excess_edu/views/widgets/course_details/course_descrption_widget.dart';
+import 'package:excess_edu/views/widgets/course_details/course_includes_widget.dart';
+import 'package:excess_edu/views/widgets/course_details/instructor_view_widget.dart';
 import 'package:excess_edu/views/widgets/course_details/section_view_widget.dart';
 import '../../models/course_details_model/course_model.dart';
+import '../widgets/course_details/rating_view_widget.dart';
 import '/views/widgets/label_widget.dart';
 import 'package:get/get.dart';
 import '../widgets/course_details/bottom_floating_bar_widget.dart';
 import '../widgets/course_details/what_you_learn_widget.dart';
-import '../widgets/course_details/youtube_player_widget.dart';
+import '../widgets/youtube_player_widget.dart';
 import '/views/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
+import '../widgets/course_details/lesson_view_widget.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../controllers/course_details_view-controller.dart';
 
@@ -37,6 +42,10 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
 
   //Section View Variable
   List<bool> _isExpandedList = [];
+  int totalLesson = 1;
+
+  //Description Section
+  bool _showMore = false;
 
   @override
   void initState() {
@@ -76,8 +85,6 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
             totalDuration = course?.courseIncludes.courseDuration;
             totalHour = ((totalDuration! / 60) / 60).toInt();
             totalMinute = (totalDuration! % 60);
-            print(totalHour);
-            print(totalMinute);
 
             return Column(
               children: [
@@ -110,6 +117,20 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                     ),
                   ),
                 ),
+
+                //Some of Course Details Like rating , enrolled Student Here
+                Padding(
+                  padding: EdgeInsets.all(padding),
+                  child: RatingViewWidget(course: course!),
+                ),
+
+                //Course Instructors Section
+                Padding(
+                  padding: EdgeInsets.all(padding),
+                  child: InstructorViewWidget(
+                    course: course!,
+                  ),
+                ),
                 //What You Will Learn Section Started Here
                 Padding(
                   padding: EdgeInsets.all(padding),
@@ -121,6 +142,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                   ),
                 ),
 
+                //Currriculum  Section Started Here
                 Padding(
                   padding: EdgeInsets.all(padding),
                   child: Container(
@@ -134,6 +156,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                         Padding(
                           padding: EdgeInsets.only(top: 5),
                           child: Container(
+                            //Section Short details Here like section lesson Nad total duration
                             child: Text(
                               "${totalSection} section - ${totalLecture} lecture - ${totalHour}h ${totalMinute}min total length",
                               style: TextStyle(),
@@ -141,72 +164,35 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                             ),
                           ),
                         ),
+                        //Section Widget Here
                         Container(
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: course!.curriculum.sections.length,
-                            itemBuilder: (context, index) {
-                              if (_isExpandedList.length <= index) {
-                                // initialize the expansion state for this section
-                                _isExpandedList.add(false);
-                              }
-                              return Column(
-                                children: [
-                                  SizedBox(
-                                    height: 55,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Section ${index + 1} - ${course!.curriculum.sections[index].sectionName} ",
-                                          textScaleFactor: 1.2,
-                                        ),
-                                        GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                _isExpandedList[index] =
-                                                    !_isExpandedList[index];
-                                              });
-                                              print(_isExpandedList[index]);
-                                            },
-                                            child: _isExpandedList[index]
-                                                ? Icon(Icons.arrow_drop_up)
-                                                : Icon(Icons.arrow_drop_down)),
-                                      ],
-                                    ),
-                                  ),
-                                  if (_isExpandedList[index])
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 16),
-                                      child: Text(course!
-                                          .curriculum
-                                          .sections[index]
-                                          .lessons[0]
-                                          .lessonName),
-                                    ),
-                                ],
-                              );
-                            },
+                          child: SectionViewWidget(
+                            course: course!,
                           ),
                         ),
-                        SizedBox(
-                          height: 300,
-                        ),
-                        Container(
-                          child: SectionViewWidget(course: course!),
-                        )
                       ],
                     ),
                   ),
+                ),
+                //Course Include Section Here
+                Padding(
+                  padding: EdgeInsets.all(padding),
+                  child: CourseIncludesWidget(
+                    course: course!,
+                  ),
+                ),
+                //Course Description Here
+                Padding(
+                  padding: EdgeInsets.all(padding),
+                  child:
+                      CourseDescriptionWidget(description: course!.description),
                 )
               ],
             );
           }),
         ],
       ),
+      //Bottom Bar for Course Price and Enroll button
       bottomNavigationBar: Obx(
         () {
           if (courseDetailsViewContrller.isLoading == true) {

@@ -5,6 +5,7 @@ import '../../../models/course_details_model/course_model.dart';
 
 class WhatYouLearnWidget extends StatelessWidget {
   final Course course;
+
   const WhatYouLearnWidget({required this.course});
 
   @override

@@ -15,6 +15,8 @@ class Course {
     required this.coverVideo,
     required this.lastUpdated,
     required this.rating,
+    required this.totalRating,
+    required this.totalEnrolled,
     required this.courseIncludes,
     required this.instructor,
     required this.description,
@@ -26,13 +28,15 @@ class Course {
   int categoryId;
   String name;
   String shortDescription;
-  var price;
+  double price;
   String priceUnit;
   String coverType;
   String coverImage;
   String coverVideo;
   DateTime lastUpdated;
   double rating;
+  int totalRating;
+  int totalEnrolled;
   CourseIncludes courseIncludes;
   Instructor instructor;
   String description;
@@ -44,13 +48,15 @@ class Course {
         categoryId: json["category_id"],
         name: json["name"],
         shortDescription: json["short_description"],
-        price: json["price"],
+        price: json["price"].toDouble(),
         priceUnit: json["price_unit"],
         coverType: json["cover_type"],
         coverImage: json["cover_image"],
         coverVideo: json["cover_video"],
         lastUpdated: DateTime.parse(json["last_updated"]),
         rating: json["rating"].toDouble(),
+        totalRating: json["total_rating"],
+        totalEnrolled: json["total_enrolled"],
         courseIncludes: CourseIncludes.fromJson(json["course_includes"]),
         instructor: Instructor.fromJson(json["instructor"]),
         description: json["description"],
@@ -71,6 +77,8 @@ class Course {
         "last_updated":
             "${lastUpdated.year.toString().padLeft(4, '0')}-${lastUpdated.month.toString().padLeft(2, '0')}-${lastUpdated.day.toString().padLeft(2, '0')}",
         "rating": rating,
+        "total_rating": totalRating,
+        "total_enrolled": totalEnrolled,
         "course_includes": courseIncludes.toJson(),
         "instructor": instructor.toJson(),
         "description": description,
