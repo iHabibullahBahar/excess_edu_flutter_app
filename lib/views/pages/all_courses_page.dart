@@ -1,4 +1,5 @@
 import 'package:excess_edu/models/course_model.dart';
+import 'package:excess_edu/views/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -61,6 +62,7 @@ class _AllCourcesPageState extends State<AllCourcesPage> {
               child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryColor),
             )),
+      drawer: MyDrawer(),
     );
   }
 }

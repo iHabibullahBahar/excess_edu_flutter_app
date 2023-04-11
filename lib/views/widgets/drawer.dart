@@ -1,73 +1,157 @@
 import 'package:excess_edu/consts/colors.dart';
+import 'package:excess_edu/consts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'drawer_widgets/list_Item_maker_widget.dart';
+
 class MyDrawer extends StatelessWidget {
   final imageUrl = "https://avatars.githubusercontent.com/u/69121827?v=4";
+  double padding = AppsSizeConfigs.defaultPadding;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: Container(
-      color: Colors.white,
-      child: ListView(
-        children: [
-          DrawerHeader(
-            padding: EdgeInsets.zero,
-            child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor, // set the background color here
-              ),
-              margin: EdgeInsets.zero,
-              accountName: Text("Habib"),
-              accountEmail: Text("habibhbh4u@gmail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(imageUrl),
-              ),
-            ),
-          ),
-          ListTile(
-            leading: Icon(
-              CupertinoIcons.home,
+      backgroundColor: Colors.white,
+      child: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              width: double.infinity,
               color: AppColors.primaryColor,
-            ),
-            title: Text(
-              "Home",
-              textScaleFactor: 1.2,
-              style: TextStyle(
-                color: AppColors.primaryColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage(imageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Habibullah Bahar",
+                    textScaleFactor: 1.2,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          ListTile(
-            leading: Icon(
-              CupertinoIcons.profile_circled,
-              color: AppColors.primaryColor,
+            Container(
+              height: 10,
+              color: Colors.black12,
             ),
-            title: Text(
-              "Profile",
-              textScaleFactor: 1.2,
-              style: TextStyle(
-                color: AppColors.primaryColor,
+            Container(
+              //color: Colors.white,
+              alignment: Alignment.topLeft,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(padding, padding, 12, 0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Account",
+                          textScaleFactor: 1.1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                          ),
+                        ),
+                        Spacer(),
+                        InkWell(
+                          onTap: () {
+                            print("Logout");
+                          },
+                          child: Text(
+                            "Logout",
+                            textScaleFactor: 1.1,
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                      label: "Account Information",
+                      icon: Icons.account_circle,
+                    ),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "Payment And Order History",
+                        icon: Icons.payment_sharp),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "My Certificates",
+                        icon: Icons.fact_check_outlined),
+                  ),
+                ],
               ),
             ),
-          ),
-          ListTile(
-            leading: Icon(
-              CupertinoIcons.mail,
-              color: AppColors.primaryColor,
+            Container(
+              height: 10,
+              color: Colors.black12,
             ),
-            title: Text(
-              "Email me",
-              textScaleFactor: 1.2,
-              style: TextStyle(
-                color: AppColors.primaryColor,
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(padding, padding, 0, 0),
+                        child: Text(
+                          "Others",
+                          textScaleFactor: 1.2,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "About Us", icon: Icons.info),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "Contact Us", icon: Icons.contact_phone),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "Privacy Policy", icon: Icons.privacy_tip),
+                  ),
+                  Container(
+                    child: ListItemMakerWidget(
+                        label: "Terms And Conditions",
+                        icon: Icons.verified_user),
+                  ),
+                ],
               ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

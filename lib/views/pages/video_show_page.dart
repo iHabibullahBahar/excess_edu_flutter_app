@@ -44,11 +44,15 @@ class _VideoShowPageState extends State<VideoShowPage> {
             // Otherwise, set normal mode.
             _isFullScreen = false;
           }
-          return Center(
-            child: Container(
-              height: screenSize.width / 2,
-              child: YoutubePlayerWidget(
-                videoUrl: widget.url,
+          return Scaffold(
+            body: SafeArea(
+              child: Center(
+                child: Container(
+                  //height: screenSize.width / 2,
+                  child: YoutubePlayerWidget(
+                    videoUrl: widget.url,
+                  ),
+                ),
               ),
             ),
           );
