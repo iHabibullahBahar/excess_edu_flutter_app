@@ -8,7 +8,7 @@
       "price": 999.15,
       "price_unit": "BDT",
       "cover_type": "video",
-      "cover_image": "assets/images/course_ex.png",
+      "cover_image": "https://media-private.canva.com/gIj4g/MAFbu8gIj4g/1/s.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20230411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230411T053340Z&X-Amz-Expires=19002&X-Amz-Signature=c1ce10df867f7abaaa508af14bfc91fc34814502f7c1b1c0d8a8150f29fd6ba1&X-Amz-SignedHeaders=host&response-expires=Tue%2C%2011%20Apr%202023%2010%3A50%3A22%20GMT",
       "cover_video": "https://www.youtube.com/watch?v=OiXEpjO7rOs",
       "last_updated": "2021-08-01",
       "rating": 4.5,

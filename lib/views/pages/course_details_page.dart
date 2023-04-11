@@ -1,10 +1,12 @@
 import 'package:excess_edu/consts/colors.dart';
 import 'package:excess_edu/consts/sizes.dart';
+import 'package:excess_edu/views/pages/buy_course_page.dart';
 import 'package:excess_edu/views/widgets/course_details/course_descrption_widget.dart';
 import 'package:excess_edu/views/widgets/course_details/course_includes_widget.dart';
 import 'package:excess_edu/views/widgets/course_details/instructor_view_widget.dart';
 import 'package:excess_edu/views/widgets/course_details/section_view_widget.dart';
 import '../../models/course_details_model/course_model.dart';
+import '../../utils/routes.dart';
 import '../widgets/course_details/rating_view_widget.dart';
 import '/views/widgets/label_widget.dart';
 import 'package:get/get.dart';
@@ -207,7 +209,12 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
             currency: courseDetailsViewContrller.course[0].priceUnit,
             price: courseDetailsViewContrller.course[0].price,
             onEnrollPressed: () {
-              print(courseDetailsViewContrller.course[0].whatYouLearn[0]);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BuyCoursePage(course: course!),
+                ),
+              );
             },
           );
         },

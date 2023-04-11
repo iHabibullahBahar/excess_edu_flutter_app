@@ -1,3 +1,5 @@
+import 'package:excess_edu/views/pages/buy_course_page.dart';
+
 import '/utils/routes.dart';
 import '/views/pages/course_details_page.dart';
 import '/views/pages/drawer_pages/account_information_page.dart';
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.homeRoute: (context) => const HomePage(),
         MyRoutes.frontPageRoute: (context) => const FrontPage(),
 
+
         //Drawer Page Routes
         MyRoutes.accountInformationRoute: (context) => AccountInformationPage(),
         MyRoutes.paymentAndOrderHistoryRoute: (context) =>
@@ -52,7 +55,9 @@ class MyApp extends StatelessWidget {
         MyRoutes.contactUsRoute: (context) => ContactUsPage(),
         MyRoutes.privacyPolicyRoute: (context) => PrivacyPolicyPage(),
         MyRoutes.termsAndConditionsRoute: (context) =>
-            const TermsAndConditionPage(),
+        const TermsAndConditionPage(),
+
+
       },
     );
   }
