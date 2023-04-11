@@ -6,8 +6,10 @@ import '../../../consts/colors.dart';
 class ListItemMakerWidget extends StatelessWidget {
   final String label;
   final IconData icon;
+  final String routeName;
 
-  ListItemMakerWidget({required this.label, required this.icon});
+  ListItemMakerWidget(
+      {required this.label, required this.icon, required this.routeName});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class ListItemMakerWidget extends StatelessWidget {
       // splashColor: Colors.green,
       // highlightColor: Colors.red,
       onTap: () {
-        print(label);
+        Navigator.of(context).pushNamed(routeName);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12),

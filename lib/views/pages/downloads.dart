@@ -47,28 +47,11 @@ class _DownloadsPageState extends State<DownloadsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(),
-        drawer: MyDrawer(),
-        body: (ProductModel.products != null)
-            ? ListView.builder(
-                itemCount: ProductModel.products.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text("${ProductModel.products[index].name}"),
-                    subtitle:
-                        Text(ProductModel.products[index].price.toString()),
-                    trailing:
-                        Text("${ProductModel.products[index].quantity} pcs"),
-                    onTap: () {
-                      print(ProductModel.products[index].price);
-                    },
-                  );
-                },
-              )
-            : Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.primaryColor,
-                ),
-              ));
+      appBar: CustomAppBar(),
+      drawer: MyDrawer(),
+      body: Container(
+        child: Container(child: Text("Downloads")),
+      ),
+    );
   }
 }

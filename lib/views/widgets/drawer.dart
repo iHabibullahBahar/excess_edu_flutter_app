@@ -1,5 +1,6 @@
 import 'package:excess_edu/consts/colors.dart';
 import 'package:excess_edu/consts/sizes.dart';
+import 'package:excess_edu/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -90,17 +91,20 @@ class MyDrawer extends StatelessWidget {
                   ),
                   Container(
                     child: ListItemMakerWidget(
+                      routeName: MyRoutes.accountInformationRoute,
                       label: "Account Information",
                       icon: Icons.account_circle,
                     ),
                   ),
                   Container(
                     child: ListItemMakerWidget(
+                        routeName: MyRoutes.paymentAndOrderHistoryRoute,
                         label: "Payment And Order History",
                         icon: Icons.payment_sharp),
                   ),
                   Container(
                     child: ListItemMakerWidget(
+                        routeName: MyRoutes.myCertificatesRoute,
                         label: "My Certificates",
                         icon: Icons.fact_check_outlined),
                   ),
@@ -131,18 +135,28 @@ class MyDrawer extends StatelessWidget {
                   ),
                   Container(
                     child: ListItemMakerWidget(
-                        label: "About Us", icon: Icons.info),
+                      routeName: MyRoutes.aboutUsRoute,
+                      label: "About Us",
+                      icon: Icons.info,
+                    ),
                   ),
                   Container(
                     child: ListItemMakerWidget(
-                        label: "Contact Us", icon: Icons.contact_phone),
+                      routeName: MyRoutes.contactUsRoute,
+                      label: "Contact Us",
+                      icon: Icons.contact_phone,
+                    ),
                   ),
                   Container(
                     child: ListItemMakerWidget(
-                        label: "Privacy Policy", icon: Icons.privacy_tip),
+                      routeName: MyRoutes.privacyPolicyRoute,
+                      label: "Privacy Policy",
+                      icon: Icons.privacy_tip,
+                    ),
                   ),
                   Container(
                     child: ListItemMakerWidget(
+                        routeName: MyRoutes.termsAndConditionsRoute,
                         label: "Terms And Conditions",
                         icon: Icons.verified_user),
                   ),
