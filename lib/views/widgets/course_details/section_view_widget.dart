@@ -1,8 +1,6 @@
 import 'package:excess_edu/consts/colors.dart';
 import 'package:excess_edu/views/widgets/course_details/lesson_view_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../models/course_details_model/course_model.dart';
 
 class SectionViewWidget extends StatefulWidget {
@@ -24,7 +22,7 @@ class _SectionViewWidgetState extends State<SectionViewWidget> {
     return ListView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      itemCount: widget.course!.curriculum.sections.length,
+      itemCount: widget.course.curriculum.sections.length,
       itemBuilder: (context, index) {
         if (_isExpandedList.length <= index) {
           // initialize the expansion state for this section
@@ -44,7 +42,7 @@ class _SectionViewWidgetState extends State<SectionViewWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Section ${index + 1} - ${widget.course!.curriculum.sections[index].sectionName} ",
+                      "Section ${index + 1} - ${widget.course.curriculum.sections[index].sectionName} ",
                       textScaleFactor: 1.2,
                       style: TextStyle(),
                     ),

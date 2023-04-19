@@ -22,7 +22,7 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
   bool _isCouponApplied = false;
   PaymentMethod? _paymentMethod;
   double padding = AppsSizeConfigs.defaultPadding + 2;
-  double horizontalPadding = 15;
+  double horizontalPadding = 16;
 
   @override
   void dispose() {
@@ -52,7 +52,7 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
         title: Text(
           "Buy Now",
           style: TextStyle(
-            color: AppColors.primarySwatch,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -78,10 +78,8 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
                         children: [
                           Text(
                             widget.course.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textScaleFactor: 1,
+                            style: TextStyle(),
+                            textScaleFactor: 1.1,
                           ),
                           Text(
                             widget.course.price.toString(),
@@ -93,9 +91,13 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
                         ],
                       ),
                     ),
-                    Image.network(
-                      widget.course.coverImage,
+                    Container(
                       height: 80,
+                      width: 140,
+                      child: Image.network(
+                        widget.course.coverImage,
+                        height: 80,
+                      ),
                     ),
                   ],
                 ),
@@ -160,7 +162,6 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
               height: 10,
             ),
 
-
             //Payment Method Selection Here
             Container(
               color: Colors.white,
@@ -191,9 +192,10 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
                             _paymentMethod = value;
                           });
                         },
+                        secondary: Icon(Icons.credit_card),
                       ),
                       RadioListTile<PaymentMethod>(
-                        title: Text('PersonalPay'),
+                        title: Text('Personal Payment'),
                         value: PaymentMethod.PersonalPay,
                         groupValue: _paymentMethod,
                         onChanged: (PaymentMethod? value) {
@@ -201,6 +203,7 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
                             _paymentMethod = value;
                           });
                         },
+                        secondary: Icon(Icons.person),
                       ),
                     ]),
                   ],
@@ -208,7 +211,7 @@ class _BuyCoursePageState extends State<BuyCoursePage> {
               ),
             ),
             Container(
-              height: 190,
+              height: 10,
             ),
             //Order Summary Card Here
             Container(

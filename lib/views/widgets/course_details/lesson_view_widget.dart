@@ -24,64 +24,68 @@ class LessonViewWidget extends StatelessWidget {
       itemCount: section.lessons.length,
       itemBuilder: (builder, index) {
         return Container(
-          child: Row(
-            children: [
-              Icon(
-                section.lessons[index].lessonType == "video"
-                    ? Icons.ondemand_video
-                    : Icons.article,
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Text(
-                      section.lessons[index].lessonName,
-                      textScaleFactor: 1.2,
-                      overflow: TextOverflow.ellipsis,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+            child: Row(
+              children: [
+                Icon(
+                  section.lessons[index].lessonType == "video"
+                      ? Icons.ondemand_video
+                      : Icons.article,
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: Text(
+                        section.lessons[index].lessonName,
+                        textScaleFactor: 1.2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        section.lessons[index].lessonType,
-                        textScaleFactor: 1,
-                      ),
-                      Text(
-                        " - ",
-                      ),
-                      Text(
-                        section.lessons[index].lessonType == 'video'
-                            ? "${((section.lessons[index].contentSize) / 60).floor()} mins"
-                            : "${section.lessons[index].contentSize} pages",
-                        textScaleFactor: 1,
-                      ),
-                    ],
+                    Row(
+                      children: [
+                        Text(
+                          section.lessons[index].lessonType,
+                          textScaleFactor: 1,
+                        ),
+                        Text(
+                          " - ",
+                        ),
+                        Text(
+                          section.lessons[index].lessonType == 'video'
+                              ? "${((section.lessons[index].contentSize) / 60).floor()} mins"
+                              : "${section.lessons[index].contentSize} pages",
+                          textScaleFactor: 1,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Spacer(),
+                if (section.lessons[index].isPreviewable)
+                  GestureDetector(
+                    onTap: (section.lessons[index].lessonType == "video")
+                        ? () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VideoShowPage(
+                                        url: section
+                                            .lessons[index].contentUrl)));
+                          }
+                        : () {},
+                    child: Icon(
+                      Icons.slow_motion_video_sharp,
+                      color: AppColors.primaryColor,
+                    ),
                   )
-                ],
-              ),
-              Spacer(),
-              if (section.lessons[index].isPreviewable)
-                GestureDetector(
-                  onTap: (section.lessons[index].lessonType == "video")
-                      ? () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VideoShowPage(
-                                      url: section.lessons[index].contentUrl)));
-                        }
-                      : () {},
-                  child: Icon(
-                    Icons.slow_motion_video_sharp,
-                    color: AppColors.primaryColor,
-                  ),
-                )
-            ],
+              ],
+            ),
           ),
         );
       },

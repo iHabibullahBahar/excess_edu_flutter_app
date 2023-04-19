@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -19,13 +18,13 @@ class RatingViewWidget extends StatelessWidget {
           Row(
             children: [
               Text(
-                course!.rating.toString(),
+                course.rating.toString(),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: RatingBar.builder(
-                  initialRating: course!.rating,
+                  initialRating: course.rating,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: true,
@@ -43,8 +42,8 @@ class RatingViewWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              Text("${course!.totalRating.toString()} ratings "),
-              Text("(${course!.totalEnrolled} students)"),
+              Text("${course.totalRating.toString()} ratings "),
+              Text("(${course.totalEnrolled} students)"),
             ],
           ),
         ],

@@ -26,11 +26,14 @@ class _CourseDescriptionWidgetState extends State<CourseDescriptionWidget> {
         children: [
           LabelWidget(text: "Description"),
           GestureDetector(
-            child: Text(
-              widget.description,
-              maxLines: _showMore ? null : 6,
-              overflow: TextOverflow.fade,
-              textScaleFactor: 1.2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Text(
+                widget.description,
+                maxLines: _showMore ? null : 6,
+                overflow: TextOverflow.fade,
+                textScaleFactor: 1.2,
+              ),
             ),
             onTap: () {
               setState(() {

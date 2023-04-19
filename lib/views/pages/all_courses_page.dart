@@ -1,3 +1,4 @@
+import 'package:excess_edu/consts/sizes.dart';
 import 'package:excess_edu/models/course_model.dart';
 import 'package:excess_edu/views/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class AllCourcesPage extends StatefulWidget {
 
 class _AllCourcesPageState extends State<AllCourcesPage> {
   bool _isMounted = false;
+  double padding = AppsSizeConfigs.defaultPadding;
 
   @override
   void initState() {

@@ -8,6 +8,7 @@ import 'package:excess_edu/views/widgets/course_details/section_view_widget.dart
 import '../../models/course_details_model/course_model.dart';
 import '../../utils/routes.dart';
 import '../widgets/course_details/rating_view_widget.dart';
+import '../widgets/course_details/review_widget.dart';
 import '/views/widgets/label_widget.dart';
 import 'package:get/get.dart';
 import '../widgets/course_details/bottom_floating_bar_widget.dart';
@@ -33,6 +34,8 @@ class CourseDetailsPage extends StatefulWidget {
 class _CourseDetailsPageState extends State<CourseDetailsPage> {
   var courseDetailsViewContrller = Get.put(DetailsViewController());
   double padding = AppsSizeConfigs.defaultPadding;
+  double horizontalPadding = AppsSizeConfigs.defaultHorizontalPadding;
+  double verticalPadding = AppsSizeConfigs.defaultVerticalPadding;
 
   //Course Include Details
   Course? course;
@@ -98,7 +101,8 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                 ),
                 //Course Name  Here
                 Padding(
-                  padding: EdgeInsets.fromLTRB(padding, padding, padding, 0),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8, horizontal: horizontalPadding),
                   child: Container(
                     child: Text(
                       courseDetailsViewContrller.course[0].name,
@@ -111,7 +115,8 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                 ),
                 //Course Short Details Here
                 Padding(
-                  padding: EdgeInsets.fromLTRB(padding, padding, padding, 0),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8, horizontal: horizontalPadding),
                   child: Container(
                     child: Text(
                       courseDetailsViewContrller.course[0].shortDescription,
@@ -122,22 +127,24 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
 
                 //Some of Course Details Like rating , enrolled Student Here
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8, horizontal: horizontalPadding),
                   child: RatingViewWidget(course: course!),
                 ),
 
                 //Course Instructors Section
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8, horizontal: horizontalPadding),
                   child: InstructorViewWidget(
                     course: course!,
                   ),
                 ),
                 //What You Will Learn Section Started Here
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding, horizontal: horizontalPadding),
                   child: Container(
-                    //color: Colors.amberAccent,
                     child: WhatYouLearnWidget(
                       course: courseDetailsViewContrller.course[0],
                     ),
@@ -146,7 +153,8 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
 
                 //Currriculum  Section Started Here
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding, horizontal: horizontalPadding),
                   child: Container(
                     alignment: Alignment.topLeft,
                     child: Column(
@@ -178,17 +186,27 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                 ),
                 //Course Include Section Here
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding, horizontal: horizontalPadding),
                   child: CourseIncludesWidget(
                     course: course!,
                   ),
                 ),
                 //Course Description Here
                 Padding(
-                  padding: EdgeInsets.all(padding),
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding, horizontal: horizontalPadding),
                   child:
                       CourseDescriptionWidget(description: course!.description),
-                )
+                ),
+                //Course Review Section Here
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalPadding, horizontal: horizontalPadding),
+                  child: CourseReviewWidget(
+                    course: course!,
+                  ),
+                ),
               ],
             );
           }),

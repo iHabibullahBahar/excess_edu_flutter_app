@@ -39,12 +39,11 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       routes: {
-        "/": (context) => const FrontPage(),
+        //"/": (context) => const FrontPage(),
+        "/": (context) => SplashScreen(),
         //"/": (context) => SplashScreen(),
-        // "/": (context) => SplashScreen(),
         MyRoutes.homeRoute: (context) => const HomePage(),
         MyRoutes.frontPageRoute: (context) => const FrontPage(),
-
 
         //Drawer Page Routes
         MyRoutes.accountInformationRoute: (context) => AccountInformationPage(),
@@ -55,9 +54,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.contactUsRoute: (context) => ContactUsPage(),
         MyRoutes.privacyPolicyRoute: (context) => PrivacyPolicyPage(),
         MyRoutes.termsAndConditionsRoute: (context) =>
-        const TermsAndConditionPage(),
-
-
+            const TermsAndConditionPage(),
       },
     );
   }

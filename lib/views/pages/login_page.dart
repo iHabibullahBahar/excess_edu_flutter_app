@@ -59,15 +59,15 @@ class LoginPage extends StatelessWidget {
                     child: ElevatedButton.icon(
                       onPressed: () {},
                       label: Text(
-                        "Continue with Facebook",
+                        "Continue with Apple",
                         style: TextStyle(color: Colors.white),
                       ),
-                      icon: Image.asset(
-                        AppImages.facebook_icon,
-                        height: 22,
+                      icon: Icon(
+                        Icons.apple,
+                        color: Colors.white,
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
+                        primary: Colors.black,
                         elevation: 3,
                         alignment: Alignment.centerLeft,
                       ),

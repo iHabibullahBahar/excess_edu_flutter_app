@@ -15,30 +15,45 @@ class CourseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        child: ListTile(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    CourseDetailsPage(course.id, course.name)));
-      },
-      trailing: Image.asset(course.image), // replace with your image asset
-      title: Text(
-        course.name,
-        style:
-            TextStyle(color: AppColors.textColor, fontWeight: FontWeight.bold),
-        textScaleFactor: 0.9,
+    return Container(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 3.0),
+            child: Container(
+              color: Colors.white,
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              CourseDetailsPage(course.id, course.name)));
+                },
+                trailing: Image.asset(course.image),
+                title: Text(
+                  course.name,
+                  style: TextStyle(color: AppColors.textColor),
+                  textScaleFactor: 0.9,
+                ),
+                subtitle: Text(
+                  "${course.price} ${AppConfig.currency}",
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Divider(
+            color: Colors.black,
+            thickness: 0.2,
+            height: 0,
+          ),
+        ],
       ),
-      subtitle: Text(
-        "${course.price} ${AppConfig.currency}",
-        textScaleFactor: 1,
-        style: TextStyle(
-          color: AppColors.primaryColor,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ));
+    );
   }
 }

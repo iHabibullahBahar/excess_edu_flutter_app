@@ -17,8 +17,11 @@ class CourseIncludesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LabelWidget(text: "This course includes"),
+          SizedBox(
+            height: 5,
+          ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
                 Icon(
@@ -27,37 +30,44 @@ class CourseIncludesWidget extends StatelessWidget {
                 ),
                 SizedBox(width: 15),
                 Text(
-                    "${((course.courseIncludes.courseDuration / 60) / 60)
-                        .toStringAsFixed(1)}  hours video lecture"),
+                    "${((course.courseIncludes.courseDuration / 60) / 60).toStringAsFixed(1)}  hours video lecture"),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
-                Icon(Icons.article, color: Colors.black54,),
+                Icon(
+                  Icons.article,
+                  color: Colors.black54,
+                ),
                 SizedBox(width: 15),
                 Text("${course.courseIncludes.totalArticle}  Articles"),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
-                Icon(Icons.all_inclusive_rounded, color: Colors.black54,),
+                Icon(
+                  Icons.all_inclusive_rounded,
+                  color: Colors.black54,
+                ),
                 SizedBox(width: 15),
                 Text("Lifetime access"),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
-                Icon(Icons.fact_check, color: Colors.black54,),
+                Icon(
+                  Icons.fact_check,
+                  color: Colors.black54,
+                ),
                 SizedBox(width: 15),
                 Text("Certificate of Completion"),
               ],

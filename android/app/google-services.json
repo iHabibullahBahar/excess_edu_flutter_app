@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "207415117835",
+    "project_id": "excess-edu",
+    "storage_bucket": "excess-edu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207415117835:android:5d73440e0fbeb41541df0e",
+        "android_client_info": {
+          "package_name": "com.example.excess_edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207415117835-dv0r493o8fi0cs4p9l24il3hn4chslff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMNkVOY9g9DY1cED9eFcKRxJIUvdYVmg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207415117835-dv0r493o8fi0cs4p9l24il3hn4chslff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

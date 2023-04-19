@@ -1,6 +1,7 @@
 import 'course_includes_model.dart';
 import 'curriculam_model.dart';
 import 'instructor_model.dart';
+import 'rating_model.dart';
 
 class Course {
   Course({
@@ -22,6 +23,7 @@ class Course {
     required this.description,
     required this.whatYouLearn,
     required this.curriculum,
+    required this.ratings,
   });
 
   int courseId;
@@ -42,6 +44,7 @@ class Course {
   String description;
   List<String> whatYouLearn;
   Curriculum curriculum;
+  List<Rating> ratings;
 
   factory Course.fromJson(Map<String, dynamic> json) => Course(
         courseId: json["course_id"],
@@ -62,6 +65,8 @@ class Course {
         description: json["description"],
         whatYouLearn: List<String>.from(json["what_you_learn"].map((x) => x)),
         curriculum: Curriculum.fromJson(json["curriculum"]),
+        ratings:
+            List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -84,5 +89,6 @@ class Course {
         "description": description,
         "what_you_learn": List<dynamic>.from(whatYouLearn.map((x) => x)),
         "curriculum": curriculum.toJson(),
+        "ratings": List<dynamic>.from(ratings.map((x) => x.toJson())),
       };
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/course_details_model/course_model.dart';
@@ -20,7 +19,7 @@ class InstructorViewWidget extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage(course!.instructor.image),
+                backgroundImage: NetworkImage(course.instructor.image),
               ),
               SizedBox(
                 width: 12,
@@ -31,13 +30,13 @@ class InstructorViewWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      course!.instructor.name,
+                      course.instructor.name,
                       textScaleFactor: 1.1,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Container(
                       child: Text(
-                        "${course!.instructor.designation}, ${course!.instructor.institution}",
+                        "${course.instructor.designation}, ${course.instructor.institution}",
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

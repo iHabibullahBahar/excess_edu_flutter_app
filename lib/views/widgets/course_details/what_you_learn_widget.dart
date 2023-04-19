@@ -44,7 +44,7 @@ class WhatYouLearnWidget extends StatelessWidget {
                         child: Text(
                           course.whatYouLearn[index],
                           overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
+                          maxLines: 4,
                         ),
                       ),
                     ],
