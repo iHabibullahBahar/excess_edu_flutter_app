@@ -8,7 +8,9 @@ import 'package:excess_edu/views/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
+import '../../models/user_model.dart';
 import 'login_page.dart';
 
 class SplashScreen extends StatefulWidget {
